@@ -1,2 +1,2 @@
-2024-03-12 06:59:18 WARNING  
-2024-03-12 06:59:18 INFO     n33dl3w0rm took 3.620701 seconds to run.
+2024-03-15 17:21:11 WARNING  Exception raised: KeyboardInterrupt, during test_udp_connection()
+2024-03-15 17:21:11 INFO     n33dl3w0rm took 22.512144 seconds to run.

@@ -11,26 +11,27 @@ def main():
     logger = create_logger("n33dl3w0rm")
 
     target_host = "www.github.com"
+    logger.debug(f"Testing connection at {target_host}")
+
     # test tcp client
-    '''
     try:
         tcp_test_response = test_tcp_connection(target_host)
         logger.info(tcp_test_response.decode())
     except KeyboardInterrupt as e:
         logger.warning(e)
-    '''
+
     # test udp client
     try:
         udp_test_data = test_udp_connection()
         logger.info(udp_test_data.decode())
     except KeyboardInterrupt as e:
-        logger.warning(e)
+        logger.warning("Exception raised: KeyboardInterrupt, during test_udp_connection()")
 
     logger.info(f"n33dl3w0rm took {round(time() - start_time, 6)} seconds to run.")
     return True
 
 
-def test_tcp_connection(target_host="www.google.com", target_port=80):
+def test_tcp_connection(target_host="www.github.com", target_port=80):
     # create a socket object
     client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
@@ -38,7 +39,7 @@ def test_tcp_connection(target_host="www.google.com", target_port=80):
     client.connect((target_host, target_port))
 
     # send some data
-    client.send(b"GET / HTTP/1.1\r\nHost: www.google.com\r\n\r\n")
+    client.send(b"GET / HTTP/1.1\r\nHost: www.github.com\r\n\r\n")
 
     # receive some data
     response = client.recv(4096)
